@@ -1,0 +1,66 @@
+/* Box Model thing */
+* {
+	box-sizing: border-box;
+}
+
+/* Clear fix thing */
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.clear {
+   clear: both;
+}
+
+/* start main CSS */
+
+:root {
+      --primary-color: #7AA874;
+      --secondary-color: #D864A9;
+      /* --tertiary-color: #3C435C; */
+      --tertiary-color: #2D8A7C;
+}
+
+nav {
+    width: 100%;
+    right: 0;
+
+    text-align: right;
+}
+
+nav ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap:nowrap;
+      justify-content: end;
+      list-style: none;
+      width: 100%;
+}
+
+nav ul li {
+      padding: 0 1rem;
+      text-align: right;
+}
+
+#header{
+      width: 100%;
+}
+
+nav ul li a {
+      color: var(--tertiary-color);
+      text-decoration: none;
+}
+
+nav ul li a:visited, nav ul li a:active {
+      color: var(--secondary-color);
+      text-decoration: none;
+}
+
+nav ul li a:hover {
+      color: var(--tertiary-color);
+}

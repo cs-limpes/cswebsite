@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+    <div id="blog-posts"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://localhost:1337/api/posts')
+                .then(response => response.json())
+                .then(data => {
+                    const posts = data.data; // Strapi v4 returns data in a data property
+                    const container = document.getElementById('blog-posts');
+                    posts.forEach(post => {
+                        const div = document.createElement('div');
+                        div.innerHTML = `<h2>${post.attributes.title}</h2><p>${post.attributes.content}</p>`;
+                        container.appendChild(div);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

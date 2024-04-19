@@ -52,7 +52,7 @@ nav ul li {
 }
 
 nav ul li a {
-      color: var(--tertiary-color);
+      color: var(--secondary-color);
       text-decoration: none;
 }
 

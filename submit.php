@@ -29,12 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send email
     if (mail($to, $subject, $email_content, $headers)) {
-        // Redirect back to the contact page with a success message
-        header("Location: contact.html?status=success");
-        exit();
-    } else {
-        exit("Oops! Something went wrong and we couldn't send your message.");
-    }
+      // Redirect back to the contact page with a success message
+      header("Location: index.html?status=success#contact");
+      exit();
+  } else {
+      exit("Oops! Something went wrong and we couldn't send your message.");
+  }
 } else {
     exit("There was a problem with your submission, please try again.");
 }

@@ -103,21 +103,25 @@
       <section class = "contactintro">
             <p class="contactp">If you’re looking for advice or help with your software or marketing strategy, I am currently accepting consulting work. Or you can just drop a note to say hi! I usually respond within 2 business days with occasional exceptions for which I appreciate your understanding.</p>
       </section>
-      <section class="contact">
+      <section id="contact" class="contact">
+            <div id="success-message" style="display: none; color: green; margin-bottom: 20px;">
+                Thank you for your message. I'll get back to you soon!
+            </div>
             <form action="submit.php" method="post">
-                  <label for="form-name">Name<span class="required">*</span></label>
-		      <br /><input id="form-name" name="name" required />
-		
-                  <label for="form-email">Email<span class="required">*</span></label>
-                  <br /><input id="form-email" name="email" required />
-                  <input type="text" name="honeypot" style="display: none;">
-                  <label for="form-message">Message<span class="required">*</span></label>
-                  <br /><textarea id="form-message" name="message" rows="10" cols="50" required></textarea>
-                  
-                  <p><input class="submit" type="submit" value="Send" /></p>
-		
+                <label for="form-name">Name<span class="required">*</span></label>
+                <br /><input id="form-name" name="name" autocomplete="name" required aria-required="true" />
+        
+                <label for="form-email">Email<span class="required">*</span></label>
+                <br /><input id="form-email" name="email" type="email" autocomplete="email" required aria-required="true" />
+                
+                <input type="text" name="honeypot" style="display: none;">
+                
+                <label for="form-message">Message<span class="required">*</span></label>
+                <br /><textarea id="form-message" name="message" rows="10" cols="50" required aria-required="true"></textarea>
+                
+                <p><input class="submit" type="submit" value="Send" /></p>
             </form>
-      </section>
+        </section>
       <section class="socials">
             <div>
                   <a href="https://www.linkedin.com/in/cslimp/" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
@@ -137,6 +141,27 @@
 
 
       <div id="footer"></div>
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                  var results = regex.exec(location.search);
+                  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+      
+            // Check if the status parameter is 'success'
+            if (getUrlParameter('status') === 'success') {
+                  var successMessage = document.getElementById('success-message');
+                  if (successMessage) {
+                  successMessage.style.display = 'block';
+                  // Optionally, scroll to the success message
+                  successMessage.scrollIntoView({ behavior: 'smooth' });
+                  }
+            }
+      });
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     // Fetch and include the header

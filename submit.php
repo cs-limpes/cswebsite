@@ -1,28 +1,41 @@
 <?php
-  // Check if the form has been submitted
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check honeypot
     if (!empty($_POST['honeypot'])) {
-      exit("Spam detected!");
+        exit("Spam detected!");
     }
-    // Get the form data
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
 
-    // Validate the form data
+    // Sanitize and validate input
+    $name = htmlspecialchars($_POST['name'] ?? '', ENT_QUOTES, 'UTF-8');
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $message = htmlspecialchars($_POST['message'] ?? '', ENT_QUOTES, 'UTF-8');
+
     if (empty($name) || empty($email) || empty($message)) {
-      die('Please fill in all fields.');
+        exit("Please fill in all fields.");
     }
 
-    // Send an email
-    $to = 'hello@charleneslimp.com';
-    $subject = 'Charlene Slimp Website Contact';
-    $body = "Name: $name\nEmail: $email\nMessage: $message";
-    $headers = "From: $email";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        exit("Invalid email format.");
+    }
 
-    if (mail($to, $subject, $body, $headers)) {
-      echo 'Thank you for contacting me.';
+    // Prepare email
+    $to = "hello@charleneslimp.com";
+    $subject = "New Contact Form Submission";
+    $email_content = "Name: $name\n";
+    $email_content .= "Email: $email\n\n";
+    $email_content .= "Message:\n$message\n";
+
+    $headers = "From: $name <$email>";
+
+    // Send email
+    if (mail($to, $subject, $email_content, $headers)) {
+        // Redirect back to the contact page with a success message
+        header("Location: contact.html?status=success");
+        exit();
     } else {
-      echo 'There was a problem sending your message. Please try again.';
+        exit("Oops! Something went wrong and we couldn't send your message.");
     }
-  }
+} else {
+    exit("There was a problem with your submission, please try again.");
+}
+?>

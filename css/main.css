@@ -108,17 +108,36 @@ hr {
       justify-content: center;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (min-width: 1025px) {
+      .hero img {
+            width: auto;
+            height: 37.5rem;
+        }
+}
+
+@media screen and (max-width: 760px) {
       .hero {
-            margin: 0 auto;
+            margin: 0;
       }
       .hero img {
-            width: 55%;
-            height: auto;
+            width: auto;
+            height: 10rem;
+            margin-top: -3rem;
+            margin-left: -15rem;
+            position: absolute;
+        }
+
+        h1,  h2 {
+            padding-left: 1rem;
+        }
+
+        .headings p { 
+            width: 250%;
+            margin-left: -6rem;
         }
         .main {
-            width: 100%;
-            padding: 0 2rem;
+            width: 90%;
+            padding: 0;
         }
 }
 
@@ -132,12 +151,6 @@ hr {
         }
 }
 
-@media screen and (min-width: 1025px) {
-      .hero img {
-            width: auto;
-            height: 37.5rem;
-        }
-}
 
 .headings {
       text-align: left;
@@ -348,6 +361,19 @@ li b {
 .resbutton:hover a {
       color: var(--tertiary-color);
 }
+@media screen and (max-width: 760px) {
+      .resbutton {
+            margin: 2rem 0;
+      }
+
+      .resbutton:hover {
+            margin: 2rem 0;
+      }
+
+      .resbutton:hover a {
+            font-size: 110%;
+      }
+}
 
 .worktopleft {
       width: 100%;
@@ -375,6 +401,12 @@ li b {
       flex-direction: column;
       margin: 0 auto;
       width: 50%;
+}
+
+@media screen and (max-width: 760px) {
+      .contact form {
+            width: 100%;
+      }
 }
 
 /* contact page */

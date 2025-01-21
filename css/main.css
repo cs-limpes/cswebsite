@@ -26,7 +26,10 @@
       --quaternary-color: #191917;
     }
 
-
+/* html {
+      max-width: 1610px;
+      margin: 0 auto;
+} */
 
 .main {
       font-size: 18px;
@@ -53,6 +56,7 @@ h1, h2, h3, h4, h5, h6 {
       font-family: "Space Mono", monospace;
       font-weight: 800;
       font-style: normal;
+      margin-top: .5rem;
 }
 
 h1 {
@@ -79,103 +83,7 @@ hr {
 
 /* home page */
 
-.hero {
-      /* margin: -4.75rem auto 0 auto; */
-      text-align: center;
-      justify-content: center;
-      /* opacity: 0.2; */
-}
 
-@media screen and (min-width: 1025px) {
-      .hero img {
-            width: auto;
-            height: 37.5rem;
-        }
-}
-
-@media screen and (max-width: 760px) {
-      .hero {
-            margin: 0;
-      }
-      .hero img {
-            width: auto;
-            height: 10rem;
-            margin-top: -3rem;
-            margin-left: -15rem;
-            position: absolute;
-        }
-
-        h1,  h2 {
-            padding-left: 1rem;
-        }
-
-        .headings p { 
-            width: 250%;
-            margin-left: -6rem;
-        }
-        .main {
-            width: 90%;
-            padding: 0;
-        }
-}
-
-@media screen and (min-width: 781px) and (max-width: 1024px){
-      .hero {
-            margin: -3.6rem auto 0 auto;
-      }
-      .hero img {
-            width: auto;
-            height: 27.5rem;
-        }
-}
-
-.headings {
-      text-align: left;
-      width: 100%;
-      margin: auto 0;
-}
-
-.headings:before {
-      content: url(/Images/Pexels/pexels-iriser-1209751.jpg);
-      position: absolute;
-      top: 500;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* overflow: hidden; */
-      opacity: 0.2;
-      z-index: -1;
-}
-
-.headings {
-      padding: 2rem 0;
-      margin-bottom: 2rem;
-}
-
-.headings h1, h2 {
-      line-height: 1;
-      margin: 0;
-}
-
-.headings h1, h2 {
-      font-size: 3rem;
-      text-align: center;
-      width: 80%;
-      margin: 0 auto 2rem auto;
-}
-
-.headings h2 {
-      color: var(--secondary-color);
-      font-size: 1.5rem;
-}
-
-#header {
-      z-index: 99;
-      position: relative;
-}
-#header object {
-      width: 100%;
-}
 .buttons {
       width: 100%;
       margin: 0 auto;

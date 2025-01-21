@@ -1,40 +1,136 @@
 
 
 nav {
-    width: 100%;
-    right: 0;
-
-    text-align: right;
-}
-
-nav ul {
-      display: flex;
-      flex-direction: row;
-      flex-wrap:nowrap;
-      justify-content: end;
-      list-style: none;
       width: 100%;
-}
-
-nav ul li {
-      padding: 0 1rem;
+      right: 0;
+  
       text-align: right;
+  }
+  
+  nav ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:nowrap;
+        justify-content: end;
+        list-style: none;
+        width: 100%;
+  }
+  
+  nav ul li {
+        padding: 0 1rem;
+        text-align: right;
+  }
+  
+ 
+  
+  nav ul li a {
+        color: var(--secondary-color);
+        text-decoration: none;
+  }
+  
+  nav ul li a:visited, nav ul li a:active {
+        color: var(--secondary-color);
+        text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+        color: var(--tertiary-color);
+  }
+
+  .hero {
+      /* margin: -4.75rem auto 0 auto; */
+      text-align: center;
+      justify-content: center;
+      /* opacity: 0.2; */
 }
 
 #header{
       width: 100%;
+      height: 100%;
+      overflow: hidden;
 }
 
-nav ul li a {
+@media screen and (min-width: 1025px) {
+      .hero img {
+            width: auto;
+            height: 37.5rem;
+        }
+}
+
+@media screen and (max-width: 760px) {
+      .hero {
+            margin: 0;
+      }
+      .hero img {
+            width: auto;
+            height: 10rem;
+            margin-top: -3rem;
+            margin-left: -15rem;
+            position: absolute;
+        }
+
+        h1,  h2 {
+            padding-left: 1rem;
+        }
+
+        .headings p { 
+            width: 250%;
+            margin-left: -6rem;
+        }
+        .main {
+            width: 90%;
+            padding: 0;
+        }
+}
+
+@media screen and (min-width: 781px) and (max-width: 1024px){
+      .hero {
+            margin: -3.6rem auto 0 auto;
+      }
+      .hero img {
+            width: auto;
+            height: 27.5rem;
+        }
+}
+
+.headings {
+      text-align: left;
+      width: 100%;
+      margin: auto auto;
+      max-width: 1280px;
+      padding: 2rem 0;
+}
+
+.headings:before {
+      content: url(/Images/Pexels/pexels-iriser-1209751.jpg);
+      
+      position: absolute;
+      top: 500;
+      margin: auto 1%;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      opacity: 0.2;
+      z-index: -1;
+}
+
+.headings h1, h2 {
+      line-height: 1;
+      font-size: 3rem;
+      text-align: center;
+      width: 80%;
+      margin: 0 auto 2rem auto;
+}
+
+.headings h2 {
       color: var(--secondary-color);
-      text-decoration: none;
+      font-size: 1.5rem;
 }
 
-nav ul li a:visited, nav ul li a:active {
-      color: var(--secondary-color);
-      text-decoration: none;
+#header {
+      z-index: 99;
+      position: relative;
 }
-
-nav ul li a:hover {
-      color: var(--tertiary-color);
+#header object {
+      width: 100%;
 }
